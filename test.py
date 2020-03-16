@@ -1,20 +1,20 @@
 import string
 import re
 spisok = []
-lines_1 = []
-lines_2 = []
+list_1 = []
+list_2 = []
 with open('input.txt', 'r+') as file:
     lines = file.readlines()
-    print(lines)
     for j in lines:
         line = j[:-1]
+        line += ' '
         spisok.append(line)
+    print(spisok)  # 1-2 пункты задания
     for i in spisok:
-        lines_1.append(list(filter(None, re.split('\W', i))))
-    for word in lines_1:
-        for word_1 in word:
-            word_1 = str(word_1)
-            word_1 += ' '
-            lines_2.append(word_1)
+        list_1.append(re.split(' ', i[:-1]))
+        list_2.append(list(filter(None,  re.split('\W', i))))
+    print(list_1)   # со знаками препинания
+    print(list_2)   # чисто слова и ни чего больше
 
-    print(lines_2)
+
+
